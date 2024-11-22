@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <style>
+        .error { color: red; }
+        .container { 
+            max-width: 600px; 
+            margin: 30px auto; 
+            padding: 20px;
+        }
+        input, textarea { 
+            width: 100%; 
+            padding: 8px; 
+            margin: 8px 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <?php if (!empty($_SESSION['errors'])): ?>
+            <div class="error">
+                <?php foreach ($_SESSION['errors'] as $error): ?>
+                    <p><?php echo htmlspecialchars($error); ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="index.php" method="post">
+            <label for="username">Имя пользователя:</label><br>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="feedback">Отзыв:</label><br>
+            <textarea id="feedback" name="feedback" required rows="4"></textarea><br>
+
+            <input type="submit" value="Войти">
+        </form>
+    </div>
+</body>
+</html>
