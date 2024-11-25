@@ -12,6 +12,6 @@ include 'storage.php';
 // Получаем параметр 'limit' из URL, если он установлен, иначе устанавливаем значение по умолчанию 100
 $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 100;
 // Извлекаем пользователей из массива $users, ограничивая количество выводимых пользователей значением $limit
-$displayed_users = array_slice($users, 0, $limit);
+$displayed_users = array_slice($users, 0, $limit);//array_slice — Выбирает срез массива
 
 include 'account.html';
